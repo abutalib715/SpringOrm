@@ -1,19 +1,18 @@
 package com.talib.spring_orm.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "students")
 public class Student {
     @Id
-    private int studentId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
     private String city;
 
-    public Student(int studentId, String name, String city) {
-        this.studentId = studentId;
+    public Student(int id, String name, String city) {
+        this.id = id;
         this.name = name;
         this.city = city;
     }
@@ -21,12 +20,12 @@ public class Student {
     public Student() {
     }
 
-    public int getStudentId() {
-        return studentId;
+    public int getId() {
+        return id;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    public void setId(int studentId) {
+        this.id = studentId;
     }
 
     public String getName() {
